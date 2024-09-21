@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
 import './CardLetter.css'
-import Button from '../button/Button';
+import ButtonLetter from '../buttonLetter/ButtonLetter';
 import { letterSpliter } from '../../utils/letterSpliter';
 import { LetterList } from '../letterList/LetterList';
 import { RatingLetter } from '../ratingLetter/RatingLetter';
@@ -28,9 +29,9 @@ export function CardLetter({ letters, setLetters }) {
   return (
     <>
       <div className='card-container'>
-        <Button func={previous} text={"<<<"} classStyle={"go-back"} />
+        <ButtonLetter func={previous} type='button' classStyle={"go-back"} icon={<DoubleLeftOutlined />} />
         <LetterList splitedLetters={splitedLetters} index={index} />
-        <Button func={next} text={">>>"} classStyle={"go-back"} />
+        <ButtonLetter func={next} type='button' classStyle={"go-back"} icon={<DoubleRightOutlined />} />
       </div>
       <RatingLetter setLetters={setLetters} index={index} rateValue={letters[index].rate} />
     </>

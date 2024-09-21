@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import Button from "../button/Button";
+import { useNavigate } from "react-router-dom";
 import { WelcomeMessage } from "../welcome/WelcomeMessage";
+import ButtonLetter from "../buttonLetter/ButtonLetter";
 
 // A função setLetters é recebida como prop e permite atualizar o estado de 'letters'
 export default function PageHeader({ setLetters }) {
@@ -21,11 +21,17 @@ export default function PageHeader({ setLetters }) {
     })
   }
 
+  const navigate = useNavigate()
+
+  const redirectToAddPage = () => {
+    navigate('/letter/add')
+  }
+
   return (
     <header className="App-header">
-      <Button text={"+"} classStyle={"add"}>
-        <Link to={`/letters/add`} />
-      </Button>
+      <ButtonLetter func={redirectToAddPage} type={'button'} classStyle={"add"}>
+        Adicionar
+      </ButtonLetter>
       <WelcomeMessage />
     </header>
   )

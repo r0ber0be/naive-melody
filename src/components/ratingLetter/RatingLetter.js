@@ -1,5 +1,5 @@
-import './RatingLetter.css'
 import { Rate } from "antd";
+import './RatingLetter.css'
 
 export function RatingLetter({ setLetters, index, rateValue }) {
   const updateRate = (newRate) => {

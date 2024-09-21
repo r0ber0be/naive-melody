@@ -1,6 +1,7 @@
 .App {
   background-color: #282c34;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   text-align: -webkit-center;
   color: #4B371C;
 }

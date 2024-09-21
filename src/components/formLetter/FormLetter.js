@@ -1,50 +1,51 @@
-import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button, Form, Input } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+import { Form } from 'antd';
 import './FormLetter.css'
+import { useNavigate } from 'react-router-dom';
+import ButtonLetter from '../buttonLetter/ButtonLetter';
+import { DynamicInput } from '../dynamicInput/DynamicInput';
 
 export function FormLetter() {
+  const navigate = useNavigate()
+
   const onFinish = (values) => {
-    console.log('Received values of form:', values);
+    if(values.letter !== undefined) {
+      navigate('/')
+    }
+    alert('Para salvar é necessário adicionar alguma coisa!')
   };
+
+  const onCancel = () => {
+    navigate('/')
+  }
 
   return (
     <Form className="form-letter" name="dynamic_form_item" onFinish={onFinish}>
-      <Form.List name="names">
+      <Form.List name="letter">
         {(fields, { add, remove }) => (
           <>
-            {fields.map((field) => (
-              <Form.Item required={true} key={field.key}>
-                <Form.Item
-                  name={field.name}
-                  key={field.fieldKey}
-                  isListField={field.isListField}
-                  noStyle
-                >
-                  <Input placeholder="Insira sua frase" title="Escreva qualquer coisa" required />
-                </Form.Item>
-                <MinusCircleOutlined
-                  className="dynamic-delete-button"
-                  onClick={() => remove(field.name)}
-                />
-              </Form.Item>
-            ))}
+            <DynamicInput fields={fields} remove={remove} />
             <Form.Item>
-              <Button
+              <ButtonLetter
                 type="dashed"
-                onClick={() => add()}
+                func={() => add()}
                 icon={<PlusOutlined />}
               >
                 Adicionar linha
-              </Button>
+              </ButtonLetter>
             </Form.Item>
           </>
         )}
       </Form.List>
       
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <ButtonLetter type="primary" htmlType="submit">
           Salvar
-        </Button>
+        </ButtonLetter>
+
+        <ButtonLetter type="primary" func={onCancel}>
+          Cancelar
+        </ButtonLetter>
       </Form.Item>
     </Form>
   );
