@@ -1,0 +1,7 @@
+input[type="text"].name {
+  min-width: 100px;
+  color: white;
+  font-size: calc(10px + 2vmin);
+  border: none;
+  background-color: transparent;
+}
