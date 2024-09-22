@@ -1,0 +1,21 @@
+.not-found {
+  height: 100vh;
+  color: white;
+  align-content: center;
+  animation-name: text-animation;
+  animation-duration: 1.5s;
+  will-change: transform;
+}
+
+.not-found > h1 {
+  margin: 0;
+}
+
+@keyframes text-animation {
+  0% {
+    transform: skewY(10deg);
+  },
+  100% {
+    transform:skewY(0deg) 
+  }
+}

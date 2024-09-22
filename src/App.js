@@ -2,8 +2,9 @@ import { useState } from "react";
 import { initialLetters } from "./utils/data";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home';
-import AddLetter from './pages/AddLetter';
+import Home from './pages/home/Home';
+import AddLetter from './pages/addLetter/AddLetter';
+import NotFound from './pages/notFound/NotFound'
 
 function App() {
   // Procura chaves com o nome letters no local storage, caso tenha, os valores serão salvos na constante
@@ -22,12 +23,17 @@ function App() {
           <Route 
             exact 
             path='/' 
-            element={<Home letters={letters} setLetters={setLetters}/>} 
+            element={<Home letters={letters} setLetters={setLetters}/>
+          } 
           />
           <Route 
             exact 
             path='/letter/add' 
             element={<AddLetter setLetters={setLetters}/>} 
+          />
+          <Route
+            path='*'
+            element={<NotFound />}
           />
         </Routes>
       </BrowserRouter>
