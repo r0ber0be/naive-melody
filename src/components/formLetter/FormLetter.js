@@ -5,14 +5,22 @@ import { useNavigate } from 'react-router-dom';
 import ButtonLetter from '../buttonLetter/ButtonLetter';
 import { DynamicInput } from '../dynamicInput/DynamicInput';
 
-export function FormLetter() {
+export function FormLetter({ setLetters }) {
   const navigate = useNavigate()
 
-  const onFinish = (values) => {
-    if(values.letter !== undefined) {
+  const onFinish = ({ letter }) => {
+    if(letter !== undefined) {
+      setLetters(prevLetters => {
+        // Cria uma cópia do array 'prevLetters' e adiciona um novo objeto com a chave 'letter' e os valores de 'newLetter' e 'rate' zerado
+        const updatedLetters = [...prevLetters, { letter: letter, rate: 0 }]
+        // Transforma o novo array de objetos em uma string para poder ser armazenado no local storage
+        localStorage.setItem('letters', JSON.stringify(updatedLetters))
+        return updatedLetters
+      })
       navigate('/')
+    } else {
+      alert('Para salvar é necessário adicionar alguma coisa!')
     }
-    alert('Para salvar é necessário adicionar alguma coisa!')
   };
 
   const onCancel = () => {

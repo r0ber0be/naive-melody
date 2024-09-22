@@ -1,8 +1,15 @@
-export function LetterList({ splitedLetters, index }) {
+import './LetterList.css'
+
+export function LetterList({ letter }) {
   return (
     <div>
-      {splitedLetters[index].map((l, index) => { //Quando o indice é incrementado ou decrementado, a posição do array letters se altera, fazendo com que uma nova letter seja exibida
-        return <p key={index}>{l}</p>
+      {letter.map((line, index) => { // itera sobre todos os valores de letter, retornando estes valores "transformados" dentro da tag p
+        return <p 
+          className='lines' 
+          key={index}
+        >
+          { line }
+        </p>
       })}
     </div>
   )

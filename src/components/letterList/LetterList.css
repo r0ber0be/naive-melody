@@ -1,0 +1,3 @@
+.lines::first-letter {
+  text-transform: capitalize;
+}
