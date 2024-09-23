@@ -34,7 +34,6 @@ export function CardLetter({ letters, setLetters }) {
         <LetterList letter={currentLetter} />
         <ButtonLetter func={next} type='button' classStyle={"go-back"} icon={<DoubleRightOutlined />} />
       </div>
-      {'Permite avaliar a carta atual'}
       <RatingLetter setLetters={setLetters} index={index} rateValue={currentRate} />
     </>
   )
