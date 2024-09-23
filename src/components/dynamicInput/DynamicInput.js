@@ -15,7 +15,7 @@ export function DynamicInput({ fields, remove }) {
           >
             <Input placeholder="Insira sua frase" title="Escreva qualquer coisa" required />
           </Form.Item>
-          {'Este ícone permite que o input atrelado a ele seja removido'}
+          {/*Este ícone permite que o input atrelado a ele seja removido*/}
           <MinusCircleOutlined
             onClick={() => remove(field.name)}
           />
