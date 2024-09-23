@@ -5,15 +5,16 @@ import { useNavigate } from 'react-router-dom';
 import ButtonLetter from '../buttonLetter/ButtonLetter';
 import { DynamicInput } from '../dynamicInput/DynamicInput';
 
+// Recebe setLetters para executar a função de adicionar novas letters
 export function FormLetter({ setLetters }) {
   const navigate = useNavigate()
 
+  // Função acionada quando a ação de submit é realizada
   const onFinish = ({ letter }) => {
     if(letter !== undefined) {
       setLetters(prevLetters => {
-        // Cria uma cópia do array 'prevLetters' e adiciona um novo objeto com a chave 'letter' e os valores de 'newLetter' e 'rate' zerado
+        // Atualiza o estado de letters e salva no local storage
         const updatedLetters = [...prevLetters, { letter: letter, rate: 0 }]
-        // Transforma o novo array de objetos em uma string para poder ser armazenado no local storage
         localStorage.setItem('letters', JSON.stringify(updatedLetters))
         return updatedLetters
       })

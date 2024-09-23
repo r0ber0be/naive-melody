@@ -4,16 +4,17 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './pages/home/Home';
 import AddLetter from './pages/addLetter/AddLetter';
-import NotFound from './pages/notFound/NotFound'
+import NotFound from "./pages/NotFound/NotFound";
 
+// Este componente cria rotas para as páginas da aplicação e fornece o estado de letters para os componentes filhos
 function App() {
-  // Procura chaves com o nome letters no local storage, caso tenha, os valores serão salvos na constante
+  // Resgata valores do local storage com a chave "letters"
   const localLettersValue = localStorage.getItem('letters')
   /* Como os valores salvos no local storage são strings é necessário transformar essa string em um objeto JSON
      com o método parse, passando os valores encontrados no local storage (se houverem) */
   const localLettersParsed = JSON.parse(localLettersValue)
-  /* Inicia o estado de letters com as cartas pré escritas na aplicação, mas somente caso localLettersParsed 
-  seja nulo ou undefined, caso não seja, as cartas serão carregadas com base no que está salvo no seu local storage*/
+  /* Inicia o estado de letters com 'initialLetters' se localLettersParsed 
+  for nulo, caso não seja, as letters iniciarão com os dados do local storage, garantindo que a aplicação funcione como esperado*/
   const [letters, setLetters] = useState(() => localLettersParsed || initialLetters)
 
   return (

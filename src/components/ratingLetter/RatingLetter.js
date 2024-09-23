@@ -1,19 +1,21 @@
 import { Rate } from "antd";
 import './RatingLetter.css'
 
+// Renderiza o sistema de notas, iniciando rate com zero e podendo atualizar este valor
 export function RatingLetter({ setLetters, index, rateValue }) {
   const updateRate = (newRate) => {
     setLetters(prevLetters => {
-      // Cria uma cópia do array 'prevLetters' e adiciona um novo objeto com a chave 'letter' e os valores de 'newLetter' e 'rate' zerado
+      // Cria uma lista e adiciona 'rate' para uma letter onde as condições sejam verdadeiras
       const updatedLetters = prevLetters.map((letter, i) => {
+        // Condição verdadeira se o indice atual corresponder com o indice da letter  
         if(index === i) { 
-          return { ...letter, rate: newRate } // Atualiza o rate no indice da letter atual
+          return { ...letter, rate: newRate } // Atualiza a letter no rate no indice da letter atual
         }
-        return letter
+        return letter // Retorna as letters restante sem modifica-las
       })
-      // Transforma o novo array de objetos em uma string para poder ser armazenado no local storage
+      // Atualiza o local storage utilizando as letters atualizadas
       localStorage.setItem('letters', JSON.stringify(updatedLetters))
-      return updatedLetters
+      return updatedLetters // Retorna as atualizações para o estado, salvando-o
     })
   }
 
