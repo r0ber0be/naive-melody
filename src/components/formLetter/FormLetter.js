@@ -1,5 +1,6 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { Form } from 'antd';
+import { postLetter } from "../../services/api";
 import './FormLetter.css'
 import { useNavigate } from 'react-router-dom';
 import ButtonLetter from '../buttonLetter/ButtonLetter';
@@ -10,12 +11,13 @@ export function FormLetter({ setLetters }) {
   const navigate = useNavigate()
 
   // Função acionada quando a ação de submit é realizada
-  const onFinish = ({ letter }) => {
+  const onFinish = async ({ letter }) => {
     if(letter !== undefined) {
+      await postLetter(letter)
       setLetters(prevLetters => {
         // Atualiza o estado de letters e salva no local storage
         const updatedLetters = [...prevLetters, { letter: letter, rate: 0 }]
-        localStorage.setItem('letters', JSON.stringify(updatedLetters))
+        console.log({ letter: letter, rate: 0 })
         return updatedLetters
       })
       navigate('/')

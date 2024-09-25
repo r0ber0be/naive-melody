@@ -12,6 +12,8 @@ code {
 }
 
 :where(.css-dev-only-do-not-override-qnu6hi).ant-empty .ant-empty-description, 
-:where(.css-dev-only-do-not-override-qnu6hi).ant-form {
+:where(.css-dev-only-do-not-override-qnu6hi).ant-form,
+:where(.css-dev-only-do-not-override-qnu6hi).ant-typography, 
+:where(.css-dev-only-do-not-override-qnu6hi).ant-typography p {
   color: white;
 }
