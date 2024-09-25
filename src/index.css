@@ -10,3 +10,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:where(.css-dev-only-do-not-override-qnu6hi).ant-empty .ant-empty-description, 
+:where(.css-dev-only-do-not-override-qnu6hi).ant-form {
+  color: white;
+}
