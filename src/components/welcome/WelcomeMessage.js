@@ -1,9 +1,12 @@
 import { InputWelcomeName } from '../inputName/InputWelcomeName';
+import './WelcomeMessage.css'
 
 export function WelcomeMessage() {
   return (
-    <h1 className='welcome'>Olá, mais uma vez, {' '} 
-      <InputWelcomeName />
-    </h1>
+    <div className='profile'>
+      <h1>Olá, mais uma vez, {' '} 
+        <InputWelcomeName />
+      </h1>
+    </div>
   )
 }

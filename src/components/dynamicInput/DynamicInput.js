@@ -1,5 +1,6 @@
 import { DeleteTwoTone } from '@ant-design/icons';
-import { Form, Input } from "antd";
+import { Form, Input, Space } from "antd";
+import ButtonLetter from '../buttonLetter/ButtonLetter';
 
 // Renderiza dinamicamente inputs do formulário, podendo adiciona-los e remove-los
 export function DynamicInput({ fields, remove }) {
@@ -21,13 +22,16 @@ export function DynamicInput({ fields, remove }) {
             isListField={field.isListField}
             noStyle
           >
-            <Input placeholder="Insira sua frase" title="Escreva qualquer coisa" required />
+            <Space.Compact block>
+              <Input
+                placeholder="Insira sua frase" title="Escreva qualquer coisa" required
+              />
+              <ButtonLetter type="primary" func={() => remove(field.name)}>
+                {/*Este ícone permite a remoção do input atrelado a ele*/}
+                <DeleteTwoTone twoToneColor="#eb2f96" />
+              </ButtonLetter>
+            </Space.Compact>
           </Form.Item>
-          {/*Este ícone permite que o input atrelado a ele seja removido*/}
-          <DeleteTwoTone
-            onClick={() => remove(field.name)}
-            twoToneColor="#eb2f96"
-          />
         </Form.Item>
       ))}
     </>

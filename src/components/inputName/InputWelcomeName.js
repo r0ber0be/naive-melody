@@ -27,7 +27,7 @@ export function InputWelcomeName() {
       onChange={handleNameChange}
       maxLength={20}
       style={{ 
-        width: `${name.length * 16}px`, 
+        width: `${name.length * 10}px`, 
         maxWidth: '300px', 
         fontWeight: "bolder"
       }}

@@ -1,21 +1,30 @@
 import { message } from 'antd';
 
-export const postLetter = async (letter) => {
-  const response = await fetch('http://localhost:3005/letters', {
+const baseURL = 'http://localhost:3005/letters'
+
+export const postLetter = async (author, title, letter, date) => {
+  await fetch(baseURL, {
     method: 'POST',
     headers: new Headers({
       "Content-type": "application/json"
     }),
-    body: JSON.stringify({ letter: letter, rate: 0 })
+    body: JSON.stringify({ author, title, letter: letter, rate: 0, date })
   })
+}
 
-  const data = await response;
-  console.log(data)
+export const rateUpdate = async (id, newRate) => {
+  await fetch(`${baseURL}/${id}`, {
+    method: 'PATCH',
+    headers: new Headers({
+      "Content-type": "application/json"
+    }),
+    body: JSON.stringify({ rate: newRate })
+  })
 }
 
 export const getLetters = async (setLetters) => {
   try {
-    const response = await fetch('http://localhost:3005/letters')
+    const response = await fetch(baseURL)
     const data = await response.json();
     setLetters(data)
   } catch (error) {

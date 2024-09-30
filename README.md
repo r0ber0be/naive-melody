@@ -1,37 +1,56 @@
-## Sobre este projeto
+# Naive Melody
 
-Este projeto foi criado com o intuito de mostrar o meu aprendizadoa referente ao estudo dos módulos 1 (Revisão JavaScript para React), 2 (Começando com React) e 3 (Componentes) do bootcamp Frontend da iTalents. 
+A aplicação permite criar mensagens, sejam elas uma poesia, um conselho ou letras de música. A ideia é expressar e consumir literatura. É possível avançar e voltar as mensagens clicando nos botões no canto do pergaminho. Foi adicionada a funcionalidade de avaliação com estrelas para cada carta!
 
-A aplicação é bastante simples, tendo como destaque um pergaminho com uma mensagem, uma poesia, um conselho, etc. A ideia é expressar e consumir literatura através de um pergaminho. É possível avançar e voltar as mensagens clicando nos botões no canto do pergaminho. Foi adicionada a funcionalidade de avaliação com estrelas para cada carta!
+Este projeto foi criado com o intuito de mostrar o meu aprendizado referente ao bootcamp focado em Frontend realizado pela iTalents. 
 
-Para mudar o texto "meu caro" exibido nas boas vindas, basta clicar lá e inserir um novo nome. Por uma questão de estética, o plano de fundo do input é transparente o que pode deixar o usuário sem a menor ideia de que é possível trocar de nome, por isso, ao passar o mouse por cima deste input uma mensagem de acessibilidade é mostrada com o texto "Clique aqui para mudar seu nome". Não se preocupe em recarregar a página ou sair do site, pois quando você voltar o nome inserido continuará lá.
+## Inserindo novas cartas:
 
-É possível adicionar novas frases na página de adição de cartas! Para isto, basta adicionar campos de texto, onde cada campo representará uma linha no pergaminho!
+Vá para a página de adição, adicione um título e coloque quantas frases quiser!
 
-## Exemplo:
+### Exemplo de entrada:
+
+Título: "Saindo de casa"
 
 campo 1: "Eu vou sair daqui" 
 
 campo 2: "ainda hoje de manhã"
 
-## Exibição:
+### Exibição:
 
-"Eu vou sair daqui
+"SAINDO DE CASA
+
+Eu vou sair daqui
 
 Ainda hoje de manhã"
 
 ## Como executar o projeto
 
-Após clonar o repositório e abri-lo no editor de sua preferência, abra o terminal e insira:
+Após clonar o repositório e abri-lo no editor de sua preferência, abra o terminal e execute a linha de comando para instalar as dependências no diretório do projeto:
 
-### `cd naive-melody`
-
-Agora, já no diretório do projeto execute a linha de comando para instalar as dependências do projeto:
-
-### `npm install`
+- `cd naive-melody`
+- `npm install`
 
 E então execute a aplicação:
 
-### `npm start`
+- `npm start`
+
+Abra outro terminal para iniciar o Json-Server usando o comando:
+
+- `npm run server`
 
 Pronto! Agora basta esperar uma janela abrir com a aplicação sendo executada!
+
+## Principais funcionalidades da aplicação:
+- Usuário pode listar as cartas
+- Usuário pode adicionar cartas
+- Usuário pode avaliar as cartas
+- Usuário pode alterar seu nome
+
+## Rotas utilizadas
+
+| Método HTTP | URL           |
+|-------------|---------------|
+| GET         | /letters      |
+| POST        | /letters      |
+| PATCH       | /letters/:id  |

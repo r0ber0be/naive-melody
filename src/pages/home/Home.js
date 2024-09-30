@@ -1,14 +1,12 @@
 import { FloatButton } from "antd";
 import { CardLetter } from "../../components/cardLetter/CardLetter";
 import { EmptyList } from "../../components/emptyList/EmptyList";
-import PageHeader from "../../components/pageHeader/PageHeader";
 
 export default function Home({ letters, setLetters }) {
   return (
     <>
-      <PageHeader />
       {
-        letters 
+        letters && letters.length > 0 
           ? <CardLetter letters={letters} setLetters={setLetters} />
           : <EmptyList />
       }

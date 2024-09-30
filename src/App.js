@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
 import Home from './pages/home/Home';
 import AddLetter from './pages/addLetter/AddLetter';
 import NotFound from "./pages/NotFound/NotFound";
-import UpdateLetter from "./pages/updateLetter/UpdateLetter";
 import { getLetters } from "./services/api";
+import { NavHeader } from "./components/navHeader/NavHeader";
+import Profile from "./pages/profile/Profile";
+import './App.css';
 
 // Este componente cria rotas para as páginas da aplicação e fornece o estado de letters para os componentes filhos
 function App() {
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <NavHeader />
         <Routes>
           <Route 
             exact 
@@ -34,8 +36,8 @@ function App() {
           />
           <Route
             exact
-            path="/letter/:id"
-            element={<UpdateLetter />}
+            path="/profile"
+            element={<Profile />}
           />
           <Route
             path='*'

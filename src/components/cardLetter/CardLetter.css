@@ -1,13 +1,10 @@
 .card-container {
-  color: #4B371C;
-  min-height: 300px;
-  display: grid;
-  align-items: center;
-  border: 2px solid #D2B48C;
-  grid-template-columns: auto 1fr auto;
-  background-color: #F5DEB3;
+  margin: 24px 0; 
+  backgroundColor: '#FFFFF8';
+  backgroundImage: 'linear-gradient(to bottom, #8080800A 2px, transparent 2px)';
+  backgroundSize: '32px 32px';
   animation-name: card-animation;
-  animation-duration: 2s;
+  animation-duration: 0.8s;
   will-change: transform;
 }
 
@@ -18,6 +15,17 @@
   }
 }
 
-.card-container > div:nth-child(even) {
-  padding: 2rem 0 2rem 0;
+:where(.css-dev-only-do-not-override-qnu6hi).ant-flex-align-flex-end {
+  align-items: center;
+}
+
+:where(.css-dev-only-do-not-override-qnu6hi).ant-typography p {
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+}
+
+:where(.css-dev-only-do-not-override-qnu6hi).ant-typography p, 
+h4:where(.css-dev-only-do-not-override-qnu6hi).ant-typography,
+:where(.css-dev-only-do-not-override-qnu6hi).ant-card .ant-card-meta-title {
+  color: #1A2D5C;
 }
