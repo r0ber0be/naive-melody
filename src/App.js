@@ -11,7 +11,7 @@ import { FloatButton } from "antd";
 
 // Este componente cria rotas para as páginas da aplicação e fornece o estado de letters para os componentes filhos
 function App() {
-  const [letters, setLetters] = useState()
+  const [letters, setLetters] = useState([])
 
   useEffect(() => {
     getLetters(setLetters)
