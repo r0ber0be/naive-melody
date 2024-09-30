@@ -7,11 +7,10 @@ import { getLetters } from "./services/api";
 import { NavHeader } from "./components/navHeader/NavHeader";
 import Profile from "./pages/profile/Profile";
 import './App.css';
+import { FloatButton } from "antd";
 
 // Este componente cria rotas para as páginas da aplicação e fornece o estado de letters para os componentes filhos
 function App() {
-  /* Inicia o estado de letters com 'initialLetters' se localLettersParsed 
-  for nulo, caso não seja, as letters iniciarão com os dados do local storage, garantindo que a aplicação funcione como esperado*/
   const [letters, setLetters] = useState()
 
   useEffect(() => {
@@ -45,6 +44,8 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+      
+      <FloatButton.BackTop tooltip="Voltar ao topo" />
     </div>
   );
 }

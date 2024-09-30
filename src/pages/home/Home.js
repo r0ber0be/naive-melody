@@ -10,7 +10,6 @@ export default function Home({ letters, setLetters }) {
           ? <CardLetter letters={letters} setLetters={setLetters} />
           : <EmptyList />
       }
-      <FloatButton.BackTop tooltip="Voltar ao topo" />
     </>
   )
 }
