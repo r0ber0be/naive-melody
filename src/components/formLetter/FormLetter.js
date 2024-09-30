@@ -16,17 +16,18 @@ export function FormLetter({ setLetters }) {
   const onFinish = async ({ title, letter }) => {
     if(letter && letter.length > 0) {
       try {
-        await postLetter(author, title, letter, date)
+        const { id } = await postLetter(author, title, letter, date)
+
+        setLetters(prevLetters => {
+          // Atualiza o estado de letters e salva no local storage
+          const updatedLetters = [...prevLetters, { id, author, title, letter: letter, rate: 0, date }]
+          return updatedLetters
+        })
       } catch (error) {
         message.error('Não foi possível enviar os dados para o servidor! Por favor, tente novamente mais tarde!')
         return
       }
 
-      setLetters(prevLetters => {
-        // Atualiza o estado de letters e salva no local storage
-        const updatedLetters = [...prevLetters, { author, title, letter: letter, rate: 0, date }]
-        return updatedLetters
-      })
       navigate('/')
     } else {
       message.warning('Para salvar é necessário adicionar conteúdo ao seu texto!')
